@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Byhinfo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    
+
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-tar
+                    =".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ApplicationBuh" asp-action="Index">Заявки на<br>  Бух/услуги</a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ApplicationUr" asp-action="Index">Заявки на<br>  Юр/услуги</a>
+                        </li>
+                            @if (User.IsInRole("admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="OrderBuh" asp-action="Index">Заказы</a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole("admin"))
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
+                                </li>
+                            }
+
+                            @if (!User.IsInRole("user") && !User.IsInRole("admin"))//User.Identity.IsAuthenticated
+                            {
+                                < class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Войти</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+                                    </li>
+                                </>
+                            }
+                            else
+                            {
+                                < class="navbar-nav ml-auto">
+                                    @if (User.IsInRole("user"))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="OrderBuh" asp-action="Mine"> Мои заявки </a>
+                                        </li>
+                                    }
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> @User.Identity.Name </a>
+                                        <div class="dropdown-menu bg-info">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Users" asp-action="Me"> Профиль </a>
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Users" asp-action="EditMe"> Изменить данные </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout"> Выйти </a>
+                                        </div>
+                                    </li>
+                                </>
+
+                                @*<ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout"> @User.Identity.Name </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                    </li>
+                </ul>*@
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            Новосибирск 
+            8 888 888 88 88 
+            пн-пт, 9:00–18:00
+            E-mail для связи
+            vanin.working@gmail.com
+            © 2023, интернет-бухгалтерия «Бух-Инфо» 
+        </div>
+    </footer>
+ 
+ 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Diplom.Models.ApplicationBuh>
+@{
+    //Layout = null;
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.<p>
+     <p>dfsdfsdfsdf <p>
+
+</div>
+
+    <form action="admin/SaveFile" method="post" enctype="multipart/form-data">
+
+        <div>
+            <input type="file" name="previewImage" />
+            <input type="submit" />
+        </div>
+
+    </form>
+
+
+
+}
+
+@*<div class="text-center">
+
+    <h1 class="display-4">Топ кастомизированных тортов</h1>
+    <h4>Успей купить!</h4>
+    <table class="table">
+        <tr>
+            
+            <th>Название торта</th>
+            <th>Время изготовления</th>
+            <th>Годен до</th>
+            <th></th>
+        </tr>
+        @foreach (var ride in Model)
+        {
+            <tr>
+                
+                <td>@ride.NAME</td>
+                <td>@ride.CREATE_DATE</td>
+                <td>@ride.END_DATE</td>
+                                 
+                
+                
+            </tr>
+        }
+    </table>
+</div>*@

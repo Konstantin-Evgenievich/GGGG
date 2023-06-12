@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Diplom.Models.OrderBuh>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Мои Заказы</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PRICE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RECEIVING_ADDRESS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.test)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRICE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cake.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RECEIVING_ADDRESS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.test)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

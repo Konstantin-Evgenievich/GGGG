@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Diplom.Models.ApplicationBuh>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Заявки на бухгалтерские услуги</h1>
+<p>
+    <a asp-action="Create">Создать заявку</a>
+</p>
+@if (User.IsInRole("admin,user"))
+{
+    <a asp-action="Create">Создать заявку</a>
+} 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FILLING_TYPE)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FILLING_TYPE)
+                </td>
+
+                <td>
+                    @if (User.IsInRole("admin,user"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ID">Изменить</a> 
+                    }
+                    <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a> 
+                    @if (User.IsInRole("admin,user"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

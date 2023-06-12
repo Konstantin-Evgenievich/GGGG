@@ -1,0 +1,53 @@
+﻿@model Diplom.Models.OrderBuh
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Изменить</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="PRICE" class="control-label"></label>
+                <input asp-for="PRICE" class="form-control" />
+                <span asp-validation-for="PRICE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CakeID" class="control-label"></label>
+                <select asp-for="CakeID" class="form-control" asp-items="ViewBag.CakeID"></select>
+                <span asp-validation-for="CakeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RECEIVING_ADDRESS" class="control-label"></label>
+                <input asp-for="RECEIVING_ADDRESS" class="form-control" />
+                <span asp-validation-for="RECEIVING_ADDRESS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@model Diplom.Models.ApplicationUr
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создание заявки</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PHYSICAL_LAW" class="control-label"></label>
+                <input asp-for="PHYSICAL_LAW" class="form-control" />
+                <span asp-validation-for="PHYSICAL_LAW" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NAME_ORG" class="control-label"></label>
+                <input asp-for="NAME_ORG" class="form-control" />
+                <span asp-validation-for="NAME_ORG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ACTIVITY" class="control-label"></label>
+                <input asp-for="ACTIVITY" class="form-control" />
+                <span asp-validation-for="ACTIVITY" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QUESTION" class="control-label"></label>
+                <input asp-for="QUESTION" class="form-control" />
+                <span asp-validation-for="QUESTION" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TIME" class="control-label"></label>
+                <input asp-for="TIME" class="form-control" />
+                <span asp-validation-for="TIME" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

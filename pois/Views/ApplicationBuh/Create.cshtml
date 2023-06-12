@@ -1,0 +1,58 @@
+﻿@model Diplom.Models.ApplicationBuh
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создание заявки</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NAME" class="control-label"></label>
+                <input asp-for="NAME" class="form-control" />
+                <span asp-validation-for="NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FILLING_TYPE" class="control-label"></label>
+                <input asp-for="FILLING_TYPE" class="form-control" />
+                <span asp-validation-for="FILLING_TYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TYPE_OF_DESIGN" class="control-label"></label>
+                <input asp-for="TYPE_OF_DESIGN" class="form-control" />
+                <span asp-validation-for="TYPE_OF_DESIGN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TYPE_OF_DECORATION" class="control-label"></label>
+                <input asp-for="TYPE_OF_DECORATION" class="form-control" />
+                <span asp-validation-for="TYPE_OF_DECORATION" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PLACE_OF_MANUFACTURE" class="control-label"></label>
+                <input asp-for="PLACE_OF_MANUFACTURE" class="form-control" />
+                <span asp-validation-for="PLACE_OF_MANUFACTURE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CREATE_DATE" class="control-label"></label>
+                <input asp-for="CREATE_DATE" class="form-control" />
+                <span asp-validation-for="CREATE_DATE" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

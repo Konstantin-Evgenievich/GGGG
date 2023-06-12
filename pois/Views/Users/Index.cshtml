@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Diplom.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Пользователи сайта</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SURNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            
+           
+            <th>
+                @Html.DisplayNameFor(model => model.PHONE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </th>
+            <th>
+                Роль
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CREATE_DATE)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SURNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PHONE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CREATE_DATE)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ID">Посмотреть</a> |
+                <a asp-action="Ban" asp-route-id="@item.ID">Бан!</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

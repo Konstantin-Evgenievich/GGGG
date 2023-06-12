@@ -1,0 +1,70 @@
+﻿@model Diplom.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Редактирование данных</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditMe">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="NAME" class="control-label"></label>
+                <input asp-for="NAME" class="form-control" />
+                <span asp-validation-for="NAME" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SURNAME" class="control-label"></label>
+                <input asp-for="SURNAME" class="form-control" />
+                <span asp-validation-for="SURNAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MIDDLENAME" class="control-label"></label>
+                <input asp-for="MIDDLENAME" class="form-control" />
+                <span asp-validation-for="MIDDLENAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DATEOFBIRTH" class="control-label"></label>
+                <input asp-for="DATEOFBIRTH" class="form-control" />
+                <span asp-validation-for="DATEOFBIRTH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PHONE" class="control-label"></label>
+                <input asp-for="PHONE" class="form-control" />
+                <span asp-validation-for="PHONE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EMAIL" class="control-label"></label>
+                <input asp-for="EMAIL" class="form-control" />
+                <span asp-validation-for="EMAIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PASSPORT" class="control-label"></label>
+                <input asp-for="PASSPORT" class="form-control" />
+                <span asp-validation-for="PASSPORT" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="PASSWORD" class="form-control" />
+            <input type="hidden" asp-for="RoleId" class="form-control" />
+            <input type="hidden" asp-for="CREATE_DATE" class="form-control" />
+            <input type="hidden" asp-for="UPDATE_DATE" class="form-control" />
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
